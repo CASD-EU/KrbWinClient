@@ -29,3 +29,16 @@ java -jar target/krbReader-1.0-SNAPSHOT.jar
 # or with a service ticket request:
 java -jar target/krbReader-1.0-SNAPSHOT.jar "HTTP/yourserver.domain.com"
 ```
+
+If you want to add more java env var, you can use the below commands.
+
+```cmd
+java ^
+  -Dsun.security.jgss.native=true ^
+  -Djavax.security.auth.useSubjectCredsOnly=false ^
+  -DSSPI_BRIDGE_TRACE=1 ^
+  -jar target\krbReader-1.0-SNAPSHOT.jar
+```
+
+> The options `-D` must be put before -jar, and it only works on `cmd`. 
+> You can't use it on `powershell`.
